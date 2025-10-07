@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Data / Analytics</title>
+  <meta name="description" content="Portfolio Data & Analytics — projets, compétences, modules étudiés.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config for dark palette
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: "#0b1220",
+            panel: "#0f172a",
+            card: "#0b1325",
+            soft: "#1e293b",
+            accent: { DEFAULT: "#5EEAD4", 600:"#34D3BD" }
+          },
+          boxShadow: {
+            glow: "0 0 0 1px rgba(94,234,212,.15), 0 10px 25px rgba(0,0,0,.35)"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html,body{background:#0b1220}
+    .chip{display:inline-flex;align-items:center;gap:.5rem;padding:.2rem .6rem;border-radius:9999px;border:1px solid rgba(148,163,184,.25);font-size:.75rem}
+    .tag {padding:.15rem .5rem;border-radius:9999px;background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2)}
+    .card{background:#0b1325;border:1px solid rgba(148,163,184,.15);border-radius:1rem;padding:1rem}
+    .section-title{font-weight:800;letter-spacing:.2px}
+    .muted{color:#a3adbd}
+  </style>
+</head>
+<body class="text-slate-100 antialiased">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 bg-bg/80 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="font-black tracking-wide">PIERRE<span class="text-accent">.DATA</span></a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#projects" class="hover:text-accent">Projets</a>
+        <a href="#modules" class="hover:text-accent">Modules</a>
+        <a href="#skills" class="hover:text-accent">Compétences</a>
+        <a href="#about" class="hover:text-accent">À propos</a>
+        <a href="#contact" class="hover:text-accent">Contact</a>
+      </nav>
+      <a href="#contact" class="chip">Discutons</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-4 py-10 md:py-16 grid md:grid-cols-[1.2fr_.8fr] gap-6 items-start">
+    <div>
+      <p class="text-xs uppercase tracking-[.2em] text-slate-400">Data · Analytics · AI</p>
+      <h1 class="mt-3 text-4xl md:text-5xl font-black leading-tight">
+        Salut, moi c'est <span class="text-accent">Brice BOISSON</span>.<br>
+        Je transforme des data en <span class="text-accent">insights</span>.
+      </h1>
+      <p class="mt-4 text-slate-300 max-w-2xl">
+        Analytics, dashboards, AB testing, automation & IA appliqués à des problèmes métiers (recrutement, events, produit). Données → décisions.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://github.com/briceboisson42" class="chip hover:border-accent hover:text-accent transition">🔗 GitHub</a>
+        <a href="#projects" class="chip hover:border-accent hover:text-accent transition">📦 Voir mes projets</a>
+        <a href="Brice BOISSON - Business (Data) Analyst.pdf" class="chip hover:border-accent hover:text-accent transition">⬇️ Télécharger mon CV (PDF)</a>
+      </div>
+    </div>
+    <aside class="card shadow-glow">
+      <div class="flex items-center gap-3">
+        <img src="assets/profile.jpg" alt="profile" class="w-16 h-16 rounded-xl object-cover border border-slate-700">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-slate-400">Preferred Data Stack</p>
+          <p class="text-sm text-slate-300">Python · SQL · Power BI</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-[12px]">
+        <div class="tag">Python — Pandas</div>
+        <div class="tag">SQL — Postgres/GBQ</div>
+        <div class="tag">Airflow — dbt</div>
+        <div class="tag">Power BI — Tableau</div>
+        <div class="tag">BigQuery</div>
+        <div class="tag">Plotly</div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 pb-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="section-title text-xl">Projets sélectionnés</h2>
+      <div class="flex items-center gap-2">
+        <input id="search" placeholder="Rechercher..." class="bg-panel border border-slate-700/60 rounded-lg px-3 py-2 text-sm outline-none focus:border-accent" />
+        <span class="text-xs text-slate-400 hidden md:inline">Filtre temps réel</span>
+      </div>
+    </div>
+
+    <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <p id="nores" class="hidden text-slate-400 text-sm mt-4">Aucun résultat…</p>
+  </section>
+
+  <!-- MODULES -->
+  <section id="modules" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="section-title text-xl mb-4">Applications — Modules étudiés</h2>
+    <div id="modules-grid" class="grid md:grid-cols-3 gap-4"></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 py-8">
+    <h2 class="section-title text-xl mb-4">Compétences</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card">
+        <h3 class="font-semibold mb-2">Data Analytics</h3>
+        <ul class="list-disc list-inside text-sm muted space-y-1">
+          <li>Nettoyage & modélisation (Pandas/Polars, SQL)</li>
+          <li>Churn, cohorte, AARRR, métriques produit</li>
+          <li>AB testing, prévision</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold mb-2">Data Engineering</h3>
+        <ul class="list-disc list-inside text-sm muted space-y-1">
+          <li>ETL/ELT (Airflow, dbt, DuckDB)</li>
+          <li>Automatisation (APIs, scraping, GSheets)</li>
+          <li>CI/CD (GitHub Actions), tests de données</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold mb-2">Data Viz & IA</h3>
+        <ul class="list-disc list-inside text-sm muted space-y-1">
+          <li>Power BI, Tableau, Plotly, Altair</li>
+          <li>Dashboards propres & interprétables</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-8">
+    <h2 class="section-title text-xl mb-4">À propos</h2>
+    <div class="grid md:grid-cols-[1.2fr_.8fr] gap-4">
+      <div class="card">
+        <p class="muted text-sm">
+          Diplômé de l'université de West of Scotland avec une expérience en Analyste de données et une Certification bac+4 "Concepteur développeur en intelligence artificielle et analyse big data" (Le Wagon). 
+          Grâce à mon parcours en business development et e-commerce, je comprends les besoins terrain et les traduis en solutions data concrètes et exploitables.
+        </p>
+        <ul class="list-disc list-inside text-sm muted mt-3 space-y-1">
+          <li>Travail reproductible, net & versionné</li>
+          <li>Documentation claire, READMEs soignés</li>
+          <li>Focus ROI & impact mesurable</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold mb-1">Faits marquants</h3>
+        <ul class="list-disc list-inside text-sm muted space-y-1">
+          <li>Automatisation de reporting hebdo (GSheets + Apps Script).</li>
+          <li>Dashboard Power BI pour suivi temps réel d’opérations.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-10 text-center">
+    <h2 class="text-2xl font-black">Travaillons ensemble</h2>
+    <p class="muted mt-1 text-sm">Ouvert à un temps plein en Data.</p>
+    <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+      <a href="mailto:briceboisson.pro@gmail.com" class="chip">Me contacter</a>
+      <a href="https://www.linkedin.com/in/brice-boisson-mbafr/" class="chip">LinkedIn</a>
+      <a href="Brice BOISSON - Business (Data) Analyst.pdf" class="chip">CV (PDF)</a>
+    </div>
+    <p class="text-[11px] text-slate-500 mt-8">© 2025 Brice BOISSON — Construit avec ♥ et Tailwind</p>
+  </section>
+
+  <script>
+    // --- Simple dynamic data for projects & modules ---
+    const projects = [
+      { title: "Quel vin pour qui ?", desc: "Analyse d'un jeu de données publique sur le vin, pour analyser les tendances des consomateurs.", tags:["python","viz","sportvin"], link:"#"},
+    ];
+
+    const modules = [
+      { title:"Module 1 · GSheets / KPIs / AARRR / Churn / Funnel", bullets:[
+        "Design de KPI, AARRR, cohortes de clients",
+        "Calculs, agrégations, tableaux croisés",
+        "SQL (JOINs, fenêtres), Apps Script",
+      ], tools:["Google Sheets","Apps Script","SQL","Looker Studio"]},
+      { title:"Module 2 · SQL & Data Warehousing", bullets:[
+        "Modélisation (staging → marts, star schema)",
+        "CTE, window functions, qualité de données"
+      ], tools:["BigQuery","dbt (transformations & doc)"]},
+      { title:"Module 3 · Data Extraction", bullets:[
+        "APIs, imports, webhooks, scheduling",
+        "Trafic de données vers DWH"
+      ], tools:["Python (requests) pour APIs","Zapier · Fivetran · Google Tag Manager"]},
+      { title:"Module 4 · Data Viz & A/B Testing", bullets:[
+        "Design de dashboards, storytelling",
+        "AB testing (métriques, interprétation)"
+      ], tools:["Looker Studio","Tableau","Power BI"]},
+      { title:"Module 5 · Python (pandas, scikit‑learn, prophet, clustering)", bullets:[
+        "EDA, features, modèles baseline",
+        "Time‑series (Prophet), clustering (k‑means)"
+      ], tools:["pandas · scikit‑learn · Prophet"]},
+      { title:"Module 6 · Projet final", bullets:[
+        "Pipeline de A à Z, documentation, data storytelling",
+        "Dossiers finaux et restitution"
+      ], tools:["BigQuery · dbt · Python","Looker Studio · Power BI"]},
+    ];
+
+    const grid = document.getElementById("project-grid");
+    function renderProjects(items){
+      grid.innerHTML = items.map(p => `
+        <a href="${p.link}" class="card group hover:border-accent/60 transition">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-semibold">${p.title}</h3>
+            <span class="text-[10px] text-slate-400 border border-slate-700 rounded px-2 py-0.5">repo</span>
+          </div>
+          <p class="muted text-sm mt-1">${p.desc}</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-[11px]">
+            ${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}
+          </div>
+        </a>
+      `).join("");
+    }
+    renderProjects(projects);
+
+    const mg = document.getElementById("modules-grid");
+    mg.innerHTML = modules.map(m => `
+      <div class="card">
+        <h3 class="font-semibold">${m.title}</h3>
+        <div class="mt-1">
+          <ul class="list-disc list-inside text-sm muted space-y-1">
+            ${m.bullets.map(b=>`<li>${b}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-2 text-[11px]">
+          ${m.tools.map(t=>`<span class="tag">${t}</span>`).join("")}
+        </div>
+      </div>
+    `).join("");
+
+    // Live search
+    const input = document.getElementById("search");
+    const nores = document.getElementById("nores");
+    input.addEventListener("input", () => {
+      const q = input.value.toLowerCase().trim();
+      const filtered = projects.filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.desc.toLowerCase().includes(q) ||
+        p.tags.join(" ").toLowerCase().includes(q)
+      );
+      renderProjects(filtered);
+      nores.classList.toggle("hidden", filtered.length !== 0);
+    });
+  </script>
+</body>
+</html>
