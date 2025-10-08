@@ -284,25 +284,37 @@
 
   // ---------- RENDU MODULES ----------
   const mg = document.getElementById("modules-grid");
-  mg.innerHTML = modules.map(m => `
-    <div class="card">
-      <h3 class="font-semibold">${m.title}</h3>
-      <div class="mt-1">
-        <ul class="list-disc list-inside text-sm muted space-y-1">
-          ${m.bullets.map(b=>`<li>${b}</li>`).join("")}
-        </ul>
+  if (mg) {
+    mg.innerHTML = modules.map(m => `
+      <div class="card">
+        <h3 class="font-semibold">${m.title}</h3>
+        <div class="mt-1">
+          <ul class="list-disc list-inside text-sm muted space-y-1">
+            ${m.bullets.map(b=>`<li>${b}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-2 text-[11px]">
+          ${m.tools.map(t=>`<span class="tag">${t}</span>`).join("")}
+        </div>
       </div>
-      <div class="mt-3 flex flex-wrap gap-2 text-[11px]">
-        ${m.tools.map(t=>`<span class="tag">${t}</span>`).join("")}
-      </div>
-    </div>
-  `).join("");
+    `).join("");
+  }
 
   // ---------- RECHERCHE ----------
   const input = document.getElementById("search");
   const nores = document.getElementById("nores");
-  input.addEventListener("input", () => {
-    const q = input.value.toLowerCase().trim();
-    const filtered = projects.filter(p =>
-      p.title.toLowerCase().includes(q) ||
-      p
+  if (input) {
+    input.addEventListener("input", () => {
+      const q = input.value.toLowerCase().trim();
+      const filtered = projects.filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.desc.toLowerCase().includes(q) ||
+        p.tags.join(" ").toLowerCase().includes(q)
+      );
+      renderProjects(filtered);
+      nores.classList.toggle("hidden", filtered.length !== 0);
+    });
+  }
+  </script>
+</body>
+</html>
