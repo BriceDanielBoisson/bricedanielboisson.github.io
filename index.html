@@ -187,12 +187,19 @@
     // --- Simple dynamic data for projects & modules ---
 const projects = [
   { 
-    title: "Quel vin pour qui ?", 
+    title: "Quel vin pour qui ? (PDF)", 
     desc: "Projet data complet : clustering et recommandations de vins selon le profil utilisateur. Dashboard Power BI + analyse Python.",
     tags:["python","dataviz","powerbi","machine-learning"], 
     link:"projet_quel_vin_pour_qui.pdf"
   },
 ];
+{
+  title: "Quel vin pour qui ? (interactif)",
+  desc: "Version interactive Power BI — lecture seule (navigable dans le navigateur).",
+  tags: ["powerbi","interactif"],
+  // On pointe vers une ancre qui amènera à l'encadré Power BI
+  link: "#pbi-wine"
+},
 
     const modules = [
       { title:"Module 1 · GSheets / KPIs / AARRR / Churn / Funnel", bullets:[
@@ -270,3 +277,33 @@ const projects = [
   </script>
 </body>
 </html>
+
+<!-- Aperçu interactif Power BI -->
+<section id="pbi-wine" class="max-w-6xl mx-auto px-4 pt-2 pb-10">
+  <h3 class="section-title text-xl mb-3">Quel vin pour qui ? — version interactive</h3>
+  <p class="text-slate-300 text-sm mb-4">
+    Rapport Power BI intégré en <strong>lecture seule</strong>. Vous pouvez naviguer et filtrer librement.
+  </p>
+
+  <div class="rounded-2xl overflow-hidden border border-slate-700/60 shadow-lg">
+    <iframe
+      title="Quel_vin_pour_qui_vFinale"
+      width="100%" height="600"
+      src="https://app.powerbi.com/view?r=eyJrIjoiNWE5ODA3NDgtOTk3ZS00Y2RlLWEwN2YtMTVkNmRiZGY0NDJjIiwidCI6IjQ1NWY0OTkyLTcxNTAtNGYwNi04NDFlLWU1MTA3NTUxNzFjNiJ9&pageName=e25d8a68cdfbab9dcc9f"
+      frameborder="0" allowfullscreen="true">
+    </iframe>
+  </div>
+
+  <div class="mt-4 flex flex-wrap gap-3">
+    <a href="projet_quel_vin_pour_qui.pdf"
+       target="_blank"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-bg font-semibold hover:bg-accent/80 transition-all duration-300 shadow-md hover:shadow-accent/30">
+      📄 Ouvrir le PDF
+    </a>
+    <a href="#projects"
+       class="chip hover:border-accent hover:text-accent transition">
+      ↑ Revenir aux projets
+    </a>
+  </div>
+</section>
+
