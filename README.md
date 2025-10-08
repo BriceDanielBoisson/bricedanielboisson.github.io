@@ -34,6 +34,10 @@ Dashboard Power BI, clustering en Python (K-means) et storytelling data.
 📄 **Lien direct vers le projet (PDF)**  
 👉 [Télécharger le projet complet](https://bricedanielboisson.github.io/projet_quel_vin_pour_qui.pdf)
 
+🔗 **Voir le rapport Power BI interactif (lecture seule)**  
+👉 [Ouvrir dans Power BI](https://app.powerbi.com/view?r=eyJrIjoiNWE5ODA3NDgtOTk3ZS00Y2RlLWEwN2YtMTVkNmRiZGY0NDJjIiwidCI6IjQ1NWY0OTkyLTcxNTAtNGYwNi04NDFlLWU1MTA3NTUxNzFjNiJ9&pageName=e25d8a68cdfbab9dcc9f)
+
+(Le rapport Power BI est interactif et consultable en **lecture seule**, sans accès d’édition ni besoin de compte Power BI.)_
 
 ---
 
