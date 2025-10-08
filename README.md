@@ -8,11 +8,6 @@ Ce site présente mes projets, dashboards, études de cas et compétences.
 
 ### 🌐 Accès rapide
 
-🔎 **Power BI interactif** (lecture seule) :
-https://app.powerbi.com/view?r=eyJrIjoiNWE5ODA3NDgtOTk3ZS00Y2RlLWEwN2YtMTVkNmRiZGY0NDJjIiwidCI6IjQ1NWY0OTkyLTcxNTAtNGYwNi04NDFlLWU1MTA3NTUxNzFjNiJ9&pageName=e25d8a68cdfbab9dcc9f 
-tesssst
-
-
 🔗 **Voir le site en ligne :**  
 👉 [https://bricedanielboisson.github.io](https://bricedanielboisson.github.io)
 
