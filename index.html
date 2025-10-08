@@ -6,6 +6,8 @@
   <title>Portfolio — Data / Analytics</title>
   <meta name="description" content="Portfolio Data & Analytics — projets, compétences, modules étudiés.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     // Tailwind config for dark palette
@@ -36,6 +38,7 @@
   </style>
 </head>
 <body class="text-slate-100 antialiased">
+
   <!-- NAV -->
   <header class="sticky top-0 z-40 bg-bg/80 backdrop-blur border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -65,21 +68,19 @@
       <div class="mt-6 flex flex-wrap gap-3">
         <a href="https://github.com/briceboisson42" class="chip hover:border-accent hover:text-accent transition">🔗 GitHub</a>
         <a href="#projects" class="chip hover:border-accent hover:text-accent transition">📦 Voir mes projets</a>
-        <a href="brice-boisson_business_data_analyst.pdf" 
-   target="_blank" 
-   rel="noopener" 
-   class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-bg font-semibold hover:bg-accent/80 transition-all duration-300 shadow-md hover:shadow-accent/30">
-  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 16v-8m0 8l-3-3m3 3l3-3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
-  </svg>
-  Télécharger mon CV (PDF)
-</a>
+        <a href="brice-boisson_business_data_analyst.pdf"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-bg font-semibold hover:bg-accent/80 transition-all duration-300 shadow-md hover:shadow-accent/30">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 16v-8m0 8l-3-3m3 3l3-3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+          </svg>
+          Télécharger mon CV (PDF)
+        </a>
       </div>
     </div>
     <aside class="card shadow-glow">
       <div class="flex items-center gap-3">
         <img src="assets/profile.jpg" alt="Brice Boisson" class="rounded-full w-28 h-28 object-cover shadow-lg">
->
         <div>
           <p class="text-xs uppercase tracking-widest text-slate-400">Preferred Data Stack</p>
           <p class="text-sm text-slate-300">Python · SQL · Power BI</p>
@@ -108,6 +109,33 @@
 
     <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
     <p id="nores" class="hidden text-slate-400 text-sm mt-4">Aucun résultat…</p>
+  </section>
+
+  <!-- Aperçu interactif Power BI -->
+  <section id="pbi-wine" class="max-w-6xl mx-auto px-4 pt-2 pb-10">
+    <h3 class="section-title text-xl mb-3">Quel vin pour qui ? — version interactive</h3>
+    <p class="text-slate-300 text-sm mb-4">
+      Rapport Power BI intégré en <strong>lecture seule</strong>. Vous pouvez naviguer et filtrer librement.
+    </p>
+
+    <div class="rounded-2xl overflow-hidden border border-slate-700/60 shadow-lg">
+      <iframe
+        title="Quel_vin_pour_qui_vFinale"
+        width="100%" height="600"
+        src="https://app.powerbi.com/view?r=eyJrIjoiNWE5ODA3NDgtOTk3ZS00Y2RlLWEwN2YtMTVkNmRiZGY0NDJjIiwidCI6IjQ1NWY0OTkyLTcxNTAtNGYwNi04NDFlLWU1MTA3NTUxNzFjNiJ9&pageName=e25d8a68cdfbab9dcc9f"
+        frameborder="0" allowfullscreen="true">
+      </iframe>
+    </div>
+
+    <div class="mt-4 flex flex-wrap gap-3">
+      <a href="projet_quel_vin_pour_qui.pdf" target="_blank"
+         class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-bg font-semibold hover:bg-accent/80 transition-all duration-300 shadow-md hover:shadow-accent/30">
+        📄 Ouvrir le PDF
+      </a>
+      <a href="#projects" class="chip hover:border-accent hover:text-accent transition">
+        ↑ Revenir aux projets
+      </a>
+    </div>
   </section>
 
   <!-- MODULES -->
@@ -178,29 +206,30 @@
     <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
       <a href="mailto:briceboisson.pro@gmail.com" class="chip">Me contacter</a>
       <a href="https://www.linkedin.com/in/brice-boisson-mbafr/" class="chip">LinkedIn</a>
-      <a href="Brice BOISSON - Business (Data) Analyst.pdf" class="chip">CV (PDF)</a>
+      <a href="brice-boisson_business_data_analyst.pdf" class="chip">CV (PDF)</a>
     </div>
     <p class="text-[11px] text-slate-500 mt-8">© 2025 Brice BOISSON — Construit avec ♥ et Tailwind</p>
   </section>
 
+  <!-- DATA + RENDER SCRIPTS -->
   <script>
-    // --- Simple dynamic data for projects & modules ---
-const projects = [
-  { 
-    title: "Quel vin pour qui ? (PDF)", 
-    desc: "Projet data complet : clustering et recommandations de vins selon le profil utilisateur. Dashboard Power BI + analyse Python.",
-    tags:["python","dataviz","powerbi","machine-learning"], 
-    link:"projet_quel_vin_pour_qui.pdf"
-  },
-];
-{
-  title: "Quel vin pour qui ? (interactif)",
-  desc: "Version interactive Power BI — lecture seule (navigable dans le navigateur).",
-  tags: ["powerbi","interactif"],
-  // On pointe vers une ancre qui amènera à l'encadré Power BI
-  link: "#pbi-wine"
-},
+    // --- Projets (2 cartes : PDF + Interactif) ---
+    const projects = [
+      { 
+        title: "Quel vin pour qui ? (PDF)", 
+        desc: "Projet data complet : clustering et recommandations de vins selon le profil utilisateur. Dashboard Power BI + analyse Python.",
+        tags:["python","dataviz","powerbi","machine-learning"], 
+        link:"projet_quel_vin_pour_qui.pdf"
+      },
+      {
+        title: "Quel vin pour qui ? (interactif)",
+        desc: "Version interactive Power BI — lecture seule (navigable dans le navigateur).",
+        tags: ["powerbi","interactif"],
+        link: "#pbi-wine"
+      }
+    ];
 
+    // --- Modules ---
     const modules = [
       { title:"Module 1 · GSheets / KPIs / AARRR / Churn / Funnel", bullets:[
         "Design de KPI, AARRR, cohortes de clients",
@@ -219,33 +248,39 @@ const projects = [
         "Design de dashboards, storytelling",
         "AB testing (métriques, interprétation)"
       ], tools:["Looker Studio","Tableau","Power BI"]},
-      { title:"Module 5 · Python (pandas, scikit‑learn, prophet, clustering)", bullets:[
+      { title:"Module 5 · Python (pandas, scikit-learn, prophet, clustering)", bullets:[
         "EDA, features, modèles baseline",
-        "Time‑series (Prophet), clustering (k‑means)"
-      ], tools:["pandas · scikit‑learn · Prophet"]},
+        "Time-series (Prophet), clustering (k-means)"
+      ], tools:["pandas · scikit-learn · Prophet"]},
       { title:"Module 6 · Projet final", bullets:[
         "Pipeline de A à Z, documentation, data storytelling",
         "Dossiers finaux et restitution"
       ], tools:["BigQuery · dbt · Python","Looker Studio · Power BI"]},
     ];
 
+    // --- Rendu projets ---
     const grid = document.getElementById("project-grid");
     function renderProjects(items){
-      grid.innerHTML = items.map(p => `
-        <a href="${p.link}" class="card group hover:border-accent/60 transition">
-          <div class="flex items-start justify-between gap-2">
-            <h3 class="font-semibold">${p.title}</h3>
-            <span class="text-[10px] text-slate-400 border border-slate-700 rounded px-2 py-0.5">repo</span>
-          </div>
-          <p class="muted text-sm mt-1">${p.desc}</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-[11px]">
-            ${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}
-          </div>
-        </a>
-      `).join("");
+      grid.innerHTML = items.map(p => {
+        const ext = p.link.startsWith('http') || p.link.endsWith('.pdf');
+        return `
+          <a href="${p.link}" ${ext ? 'target="_blank" rel="noopener"' : ''} 
+             class="card group hover:border-accent/60 transition">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-semibold">${p.title}</h3>
+              <span class="text-[10px] text-slate-400 border border-slate-700 rounded px-2 py-0.5">repo</span>
+            </div>
+            <p class="muted text-sm mt-1">${p.desc}</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-[11px]">
+              ${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}
+            </div>
+          </a>
+        `;
+      }).join("");
     }
     renderProjects(projects);
 
+    // --- Rendu modules ---
     const mg = document.getElementById("modules-grid");
     mg.innerHTML = modules.map(m => `
       <div class="card">
@@ -261,7 +296,7 @@ const projects = [
       </div>
     `).join("");
 
-    // Live search
+    // --- Recherche temps réel ---
     const input = document.getElementById("search");
     const nores = document.getElementById("nores");
     input.addEventListener("input", () => {
@@ -277,33 +312,3 @@ const projects = [
   </script>
 </body>
 </html>
-
-<!-- Aperçu interactif Power BI -->
-<section id="pbi-wine" class="max-w-6xl mx-auto px-4 pt-2 pb-10">
-  <h3 class="section-title text-xl mb-3">Quel vin pour qui ? — version interactive</h3>
-  <p class="text-slate-300 text-sm mb-4">
-    Rapport Power BI intégré en <strong>lecture seule</strong>. Vous pouvez naviguer et filtrer librement.
-  </p>
-
-  <div class="rounded-2xl overflow-hidden border border-slate-700/60 shadow-lg">
-    <iframe
-      title="Quel_vin_pour_qui_vFinale"
-      width="100%" height="600"
-      src="https://app.powerbi.com/view?r=eyJrIjoiNWE5ODA3NDgtOTk3ZS00Y2RlLWEwN2YtMTVkNmRiZGY0NDJjIiwidCI6IjQ1NWY0OTkyLTcxNTAtNGYwNi04NDFlLWU1MTA3NTUxNzFjNiJ9&pageName=e25d8a68cdfbab9dcc9f"
-      frameborder="0" allowfullscreen="true">
-    </iframe>
-  </div>
-
-  <div class="mt-4 flex flex-wrap gap-3">
-    <a href="projet_quel_vin_pour_qui.pdf"
-       target="_blank"
-       class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-bg font-semibold hover:bg-accent/80 transition-all duration-300 shadow-md hover:shadow-accent/30">
-      📄 Ouvrir le PDF
-    </a>
-    <a href="#projects"
-       class="chip hover:border-accent hover:text-accent transition">
-      ↑ Revenir aux projets
-    </a>
-  </div>
-</section>
-
