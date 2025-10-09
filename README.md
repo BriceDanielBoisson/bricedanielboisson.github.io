@@ -31,10 +31,10 @@ Dashboard Power BI, clustering en Python (K-means) et storytelling data.
 - BigQuery
 - Data storytelling
 
-📄 **Lien direct vers le projet (PDF)**  
+📄 **Lien direct vers le projet "Quel vin pour qui ?" (PDF)**  
 👉 [Télécharger le projet complet](https://bricedanielboisson.github.io/projet_quel_vin_pour_qui.pdf)
 
-🔗 **Voir le rapport Power BI interactif (lecture seule)**  
+🔗 **Voir le rapport Power BI "Quel vin pour qui ?" interactif (lecture seule)**  
 👉 [Ouvrir dans Power BI](https://app.powerbi.com/view?r=eyJrIjoiNWE5ODA3NDgtOTk3ZS00Y2RlLWEwN2YtMTVkNmRiZGY0NDJjIiwidCI6IjQ1NWY0OTkyLTcxNTAtNGYwNi04NDFlLWU1MTA3NTUxNzFjNiJ9&pageName=e25d8a68cdfbab9dcc9f)
 
 (Le rapport Power BI est interactif et consultable en **lecture seule**, sans accès d’édition ni besoin de compte Power BI.)
