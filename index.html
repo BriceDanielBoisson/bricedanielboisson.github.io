@@ -3,142 +3,155 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brice BOISSON — Data Analyst</title>
-  <meta name="description" content="Portfolio Data Analyst — projets, dashboards, compétences, modules étudiés." />
+  <title>Portfolio — Data / Analytics</title>
+  <meta name="description" content="Portfolio Data & Analytics — projets, compétences, modules étudiés." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Thème sombre + accents or (style Pierre)
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            // Fond / cartes (sombre bleuté)
-            bg:    "#0c111b",   // page
-            panel: "#0f1626",   // entêtes / barres
-            card:  "#101827",   // cartes
-            soft:  "#1a2337",   // bordures discrètes
-
-            // Accent or doux
-            gold:  { DEFAULT: "#E6C45C", 600: "#D3AE48", 700:"#C39D3A" },
-
-            // Texte subtil
-            ink:   { 300:"#b7c0d0", 400:"#9aa6bd" }
+            bg: "#0b1220",
+            panel: "#0f172a",
+            card: "#0b1325",
+            soft: "#1e293b",
+            gold: { DEFAULT: "#D4B15F", 600: "#C29D43" },
           },
           boxShadow: {
-            // halo léger + bordure interne douce
-            glow: "0 0 0 1px rgba(230,196,92,.25), 0 10px 25px rgba(0,0,0,.35)"
+            glow: "0 0 0 1px rgba(212,177,95,.10), 0 12px 28px rgba(0,0,0,.45)",
+            card: "inset 0 0 0 1px rgba(212,177,95,.08), 0 10px 25px rgba(0,0,0,.35)",
           },
           borderRadius: {
-            xl2: "1rem"
-          }
-        }
-      }
+            xxl: "1.25rem",
+          },
+        },
+      },
     };
   </script>
 
   <style>
-    html, body { background:#0c111b }
-    /* Puces / tags */
-    .chip{
-      display:inline-flex;align-items:center;gap:.5rem;
-      padding:.35rem .7rem;border-radius:9999px;
-      border:1px solid rgba(183,192,208,.18);
-      font-size:.78rem; color:#c9d3e6;
-      transition:all .22s ease;
+    html,body{background:#0b1220}
+    .section-title{font-weight:800;letter-spacing:.2px}
+    .muted{color:#a3adbd}
+
+    /* --- Pierre-like gold separators --- */
+    .sep {
+      height: 1px; width: 100%;
+      background: linear-gradient(90deg, rgba(212,177,95,.0), rgba(212,177,95,.45), rgba(212,177,95,.0));
     }
-    .chip:hover{ border-color:#E6C45C; color:#E6C45C }
-    .tag{
-      padding:.15rem .55rem;border-radius:9999px;
-      background:rgba(183,192,208,.06);
-      border:1px solid rgba(183,192,208,.18);
-      font-size:.72rem; color:#b7c0d0
-    }
+
+    /* --- Gold card frame --- */
     .card{
-      background:#101827;
-      border:1px solid rgba(183,192,208,.16);
-      border-radius:16px; padding:16px
+      background:#0b1325;border-radius:1rem;
+      border:1px solid rgba(212,177,95,.14);
+      box-shadow: var(--card-shadow, 0 10px 25px rgba(0,0,0,.35));
     }
-    .section-title{
-      font-weight:800; letter-spacing:.2px
+    .card--gold {
+      --card-shadow: 0 10px 25px rgba(0,0,0,.35), inset 0 0 0 1px rgba(212,177,95,.16);
+      border-color: rgba(212,177,95,.28);
     }
-    .muted{ color:#9aa6bd }
-    .gold-dot{ position:relative; padding-left:18px }
-    .gold-dot:before{
-      content:""; position:absolute; left:0; top:.55rem;
-      width:8px;height:8px;border-radius:9999px;background:#E6C45C
+
+    /* --- Chips (tags) --- */
+    .tag {
+      display:inline-flex;align-items:center;gap:.45rem;
+      padding:.2rem .6rem;border-radius:9999px;
+      background:rgba(212,177,95,.06);
+      border:1px solid rgba(212,177,95,.22);
+      font-size:.75rem;color:#e5e7eb;
     }
-    /* Boutons */
+
+    /* === Boutons harmonisés (style or) === */
     .btn{
-      display:inline-flex;align-items:center;gap:.55rem;
-      padding:.6rem 1rem;border-radius:9999px;font-weight:600
+      display:inline-flex;align-items:center;gap:.5rem;
+      height:42px;padding:0 .95rem;border-radius:9999px;
+      font-size:.92rem;font-weight:600;line-height:1;
+      border:1px solid rgba(212,177,95,.35);
+      color:#e5e7eb;background:rgba(11,18,32,.35);
+      box-shadow: inset 0 0 0 1px rgba(212,177,95,.06), 0 8px 18px rgba(0,0,0,.35);
+      transition: all .2s ease;
     }
-    .btn-gold{
-      background:#E6C45C;color:#0c111b
+    .btn:hover{ transform: translateY(-1px); }
+
+    .btn--gold{                       /* CTA principal plein or */
+      background:#D4B15F;color:#0b1220;border-color:#D4B15F;
     }
-    .btn-gold:hover{ background:#D3AE48 }
-    .btn-ghost{
-      border:1px solid rgba(183,192,208,.22);color:#c9d3e6
+    .btn--gold:hover{ filter:brightness(.95); }
+
+    .btn--outline{                    /* contour or */
+      background:transparent;color:#D4B15F;border-color:rgba(212,177,95,.6);
     }
-    .btn-ghost:hover{ border-color:#E6C45C; color:#E6C45C }
+    .btn--outline:hover{ background:rgba(212,177,95,.08); }
+
+    .btn--ghost{                      /* soft, cadre léger or */
+      background:transparent;border-color:rgba(212,177,95,.35);color:#e5e7eb;
+    }
+    .btn--ghost:hover{ background:rgba(212,177,95,.06); }
+
+    .btn__icon{ width:18px;height:18px; }
   </style>
 </head>
 
 <body class="text-slate-100 antialiased">
 
   <!-- NAV -->
-  <header class="sticky top-0 z-40 bg-panel/80 backdrop-blur border-b border-soft">
+  <header class="sticky top-0 z-40 bg-bg/80 backdrop-blur border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#" class="font-black tracking-wide">
-        Brice<span class="text-gold">.DATA</span>
-      </a>
+      <a href="#" class="font-black tracking-wide">BriceBOISSON<span class="text-gold">.PORTFOLIO</span></a>
       <nav class="hidden md:flex gap-6 text-sm">
-        <a href="#projects" class="hover:text-gold">Réalisations</a>
+        <a href="#projects" class="hover:text-gold">Projets</a>
+        <a href="#modules" class="hover:text-gold">Modules</a>
         <a href="#skills" class="hover:text-gold">Compétences</a>
         <a href="#about" class="hover:text-gold">À propos</a>
         <a href="#contact" class="hover:text-gold">Contact</a>
       </nav>
-      <a href="#contact" class="chip">Discutons</a>
+      <a href="#contact" class="btn btn--outline">Discutons</a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="max-w-6xl mx-auto px-4 py-10 md:py-14 grid md:grid-cols-[1.2fr_.8fr] gap-6 items-start">
+  <section class="max-w-6xl mx-auto px-4 py-10 md:py-16 grid md:grid-cols-[1.2fr_.8fr] gap-6 items-start">
     <div>
-      <p class="text-xs uppercase tracking-[.2em] text-ink-400">DATA · ANALYTICS</p>
+      <p class="text-xs uppercase tracking-[.2em] text-slate-400">Data · Analytics</p>
+
       <h1 class="mt-3 text-4xl md:text-5xl font-black leading-tight">
-        Salut, moi c’est <span class="text-gold">Brice BOISSON</span>.<br />
+        Salut, moi c’est <span class="text-gold">Brice BOISSON</span>.<br>
         Je transforme des data en <span class="text-gold">insights</span>.
       </h1>
-      <p class="mt-4 text-ink-300 max-w-2xl">
-        Analytics, dashboards, AB testing, automatisation & IA appliqués à des problématiques métier. Données → décisions.
-      </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://github.com/briceboisson42" class="chip">🔗 GitHub</a>
-        <a href="#projects" class="chip">📦 Voir mes projets</a>
 
-        <!-- Boutons façon Pierre : Télécharger & Aperçu CV -->
-        <a href="brice-boisson_data_analyst.pdf" target="_blank" rel="noopener" class="btn btn-gold">
-          ⬇️ Télécharger mon CV (PDF)
+      <p class="mt-4 text-slate-300 max-w-2xl">
+        Analytics, dashboards, AB testing, automation & IA appliqués à des problématiques métier. Données → décisions.
+      </p>
+
+      <!-- CTA harmonisés -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="btn btn--outline" href="https://github.com/briceboisson42" target="_blank" rel="noopener">🔗 GitHub</a>
+
+        <a class="btn btn--outline" href="#projects">📦 Voir mes projets</a>
+
+        <a class="btn btn--gold" href="brice-boisson_data_analyst.pdf" target="_blank" rel="noopener">
+          <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 12l-3-3m3 3l3-3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+          </svg>
+          Télécharger mon CV (PDF)
         </a>
-        <a href="brice-boisson_data_analyst.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
-          👁️ Aperçu du CV
-        </a>
+
+        <a class="btn btn--ghost" href="brice-boisson_data_analyst.pdf#page=1" target="_blank" rel="noopener">👀 Aperçu du CV</a>
       </div>
     </div>
 
-    <!-- Carte profil -->
-    <aside class="card shadow-glow">
-      <div class="flex items-center gap-3">
-        <img src="assets/profile.jpg" alt="Brice Boisson" class="rounded-full w-28 h-28 object-cover shadow-lg ring-2 ring-gold/25">
+    <!-- Carte stack à droite -->
+    <aside class="card card--gold shadow-glow">
+      <div class="flex items-center gap-4 p-4 pb-2">
+        <img src="assets/profile.jpg" alt="Brice Boisson" class="rounded-full w-24 h-24 object-cover shadow-lg border-2 border-gold/70">
         <div>
-          <p class="text-xs uppercase tracking-widest text-ink-400">Stack préférée</p>
-          <p class="text-sm text-ink-300">Python · SQL · Power BI</p>
+          <p class="text-[11px] uppercase tracking-widest text-slate-400">Stack préférée</p>
+          <p class="text-sm text-slate-200">Python · SQL · Power BI</p>
         </div>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-[12px]">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 p-4 pt-2 text-[12px]">
         <div class="tag">Python — Pandas</div>
         <div class="tag">SQL — Postgres/GBQ</div>
         <div class="tag">Airflow — dbt</div>
@@ -149,28 +162,30 @@
     </aside>
   </section>
 
-  <!-- RÉALISATIONS / PROJETS -->
+  <div class="max-w-6xl mx-auto px-4"><div class="sep my-4"></div></div>
+
+  <!-- PROJECTS -->
   <section id="projects" class="max-w-6xl mx-auto px-4 pb-6">
     <div class="flex items-center justify-between mb-4">
-      <h2 class="section-title text-xl gold-dot">Réalisations</h2>
+      <h2 class="section-title text-xl">Projets sélectionnés</h2>
       <div class="flex items-center gap-2">
-        <input id="search" placeholder="Rechercher…" class="bg-panel border border-soft rounded-lg px-3 py-2 text-sm outline-none focus:border-gold" />
-        <span class="text-xs text-ink-400 hidden md:inline">Filtre temps réel</span>
+        <input id="search" placeholder="Rechercher..." class="bg-panel border border-slate-700/60 rounded-lg px-3 py-2 text-sm outline-none focus:border-gold" />
+        <span class="text-xs text-slate-400 hidden md:inline">Filtre temps réel</span>
       </div>
     </div>
 
     <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-    <p id="nores" class="hidden text-ink-400 text-sm mt-2">Aucun résultat…</p>
+    <p id="nores" class="hidden text-slate-400 text-sm mt-4">Aucun résultat…</p>
   </section>
 
   <!-- Aperçu interactif Power BI -->
   <section id="pbi-wine" class="max-w-6xl mx-auto px-4 pt-2 pb-10">
-    <h3 class="section-title text-xl gold-dot mb-3">Quel vin pour qui ? — version interactive</h3>
-    <p class="text-ink-300 text-sm mb-4">
+    <h3 class="section-title text-xl mb-3">Quel vin pour qui ? — version interactive</h3>
+    <p class="text-slate-300 text-sm mb-4">
       Rapport Power BI intégré en <strong>lecture seule</strong>. Vous pouvez naviguer et filtrer librement.
     </p>
 
-    <div class="rounded-2xl overflow-hidden border border-soft shadow-lg">
+    <div class="rounded-2xl overflow-hidden border border-gold/35 shadow-card">
       <iframe
         title="Quel_vin_pour_qui_vFinale"
         width="100%" height="600"
@@ -180,20 +195,24 @@
     </div>
 
     <div class="mt-4 flex flex-wrap gap-3">
-      <a href="projet_quel_vin_pour_qui.pdf" target="_blank" class="btn btn-ghost">📄 Ouvrir le PDF</a>
-      <a href="#projects" class="chip">↑ Revenir aux projets</a>
+      <a href="projet_quel_vin_pour_qui.pdf" target="_blank" class="btn btn--gold">📄 Ouvrir le PDF</a>
+      <a href="#projects" class="btn btn--outline">↑ Revenir aux projets</a>
     </div>
   </section>
 
+  <div class="max-w-6xl mx-auto px-4"><div class="sep my-4"></div></div>
+
   <!-- MODULES -->
   <section id="modules" class="max-w-6xl mx-auto px-4 py-10">
-    <h2 class="section-title text-xl gold-dot mb-4">Applications — Modules étudiés</h2>
+    <h2 class="section-title text-xl mb-4">Applications — Modules étudiés</h2>
     <div id="modules-grid" class="grid md:grid-cols-3 gap-4"></div>
   </section>
 
-  <!-- COMPÉTENCES -->
+  <div class="max-w-6xl mx-auto px-4"><div class="sep my-4"></div></div>
+
+  <!-- SKILLS -->
   <section id="skills" class="max-w-6xl mx-auto px-4 py-8">
-    <h2 class="section-title text-xl gold-dot mb-4">Compétences clés</h2>
+    <h2 class="section-title text-xl mb-4">Compétences</h2>
     <div class="grid md:grid-cols-3 gap-4">
       <div class="card">
         <h3 class="font-semibold mb-2">Data Analytics</h3>
@@ -221,15 +240,17 @@
     </div>
   </section>
 
-  <!-- À PROPOS -->
+  <div class="max-w-6xl mx-auto px-4"><div class="sep my-4"></div></div>
+
+  <!-- ABOUT élargi + image, cadre or -->
   <section id="about" class="max-w-6xl mx-auto px-4 py-8">
-    <h2 class="section-title text-xl gold-dot mb-4">À propos</h2>
-    <div class="grid md:grid-cols-[1.2fr_.8fr] gap-4">
-      <div class="card">
+    <h2 class="section-title text-xl mb-4">À propos</h2>
+    <div class="grid md:grid-cols-[1.2fr_.8fr] gap-6">
+      <div class="card p-5">
         <p class="muted text-sm">
-          Diplômé de l'université de West of Scotland avec une expérience d’Analyste de données et la certification bac+4
-          “Concepteur développeur en IA & Big Data” (Le Wagon). Grâce à mon parcours en business development &
-          e-commerce, je comprends les besoins terrain et les traduis en solutions data concrètes et exploitables.
+          Diplômé de l'université de West of Scotland avec une expérience en Analyste de données et une certification bac+4
+          « Concepteur développeur en IA & big data » (Le Wagon). Grâce à mon parcours en business development et e-commerce,
+          je comprends les besoins terrain et les traduis en solutions data concrètes et exploitables.
         </p>
         <ul class="list-disc list-inside text-sm muted mt-3 space-y-1">
           <li>Travail reproductible, net & versionné</li>
@@ -237,69 +258,73 @@
           <li>Focus ROI & impact mesurable</li>
         </ul>
       </div>
-      <div class="card">
-        <h3 class="font-semibold mb-1">Faits marquants</h3>
-        <ul class="list-disc list-inside text-sm muted space-y-1">
-          <li>Automatisation de reporting hebdo (GSheets + Apps Script)</li>
-          <li>Dashboard Power BI pour suivi temps réel d’opérations</li>
-        </ul>
-      </div>
+
+      <figure class="card card--gold overflow-hidden">
+        <img src="assets/about-photo.jpg" alt="Brice — montagne" class="w-full h-full object-cover">
+      </figure>
     </div>
   </section>
+
+  <div class="max-w-6xl mx-auto px-4"><div class="sep my-4"></div></div>
 
   <!-- CONTACT -->
   <section id="contact" class="max-w-6xl mx-auto px-4 py-10 text-center">
     <h2 class="text-2xl font-black">Travaillons ensemble</h2>
-    <p class="muted mt-1 text-sm">Ouvert à des opportunités Data / Analytics.</p>
+    <p class="muted mt-1 text-sm">Ouvert à un temps plein en Data.</p>
     <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
-      <a href="mailto:briceboisson.pro@gmail.com" class="btn btn-gold">Me contacter</a>
-      <a href="https://www.linkedin.com/in/brice-boisson-mbafr/" class="btn btn-ghost">LinkedIn</a>
-      <a href="brice-boisson_data_analyst.pdf" class="btn btn-ghost">CV (PDF)</a>
+      <a href="mailto:briceboisson.pro@gmail.com" class="btn btn--gold">Me contacter</a>
+      <a href="https://www.linkedin.com/in/brice-boisson-mbafr/" class="btn btn--outline" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="brice-boisson_data_analyst.pdf" class="btn btn--ghost" target="_blank" rel="noopener">CV (PDF)</a>
     </div>
-    <p class="text-[11px] text-ink-400 mt-8">© 2025 Brice BOISSON — Site inspiré du style “or” — Construit avec Tailwind</p>
+    <p class="text-[11px] text-slate-500 mt-8">© 2025 Brice BOISSON — Construit avec ♥ et Tailwind</p>
   </section>
 
-  <!-- SCRIPT (projets + modules + recherche) -->
+  <!-- SCRIPT FINAL -->
   <script>
     // ---------- DONNÉES ----------
     const projects = [
       {
         title: "Quel vin pour qui ? (PDF)",
         desc: "Clustering + recommandations. Dashboard Power BI + analyse Python.",
-        tags: ["python","dataviz","powerbi","machine-learning"],
-        link: "projet_quel_vin_pour_qui.pdf"
+        tags:["python","dataviz","powerbi","machine-learning"],
+        link:"projet_quel_vin_pour_qui.pdf"
       },
       {
         title: "Quel vin pour qui ? (interactif)",
         desc: "Version Power BI intégrée (lecture seule) dans la page.",
-        tags: ["powerbi","interactif"],
-        link: "#pbi-wine"
+        tags:["powerbi","interactif"],
+        link:"#pbi-wine"
       }
     ];
 
     const modules = [
-      { title:"Module 1 — GSheets / KPIs / AARRR / Churn / Funnel", bullets:[
+      { title:"Module 1 - GSheets / KPIs / AARRR / Churn / Funnel", bullets:[
         "Design de KPI, AARRR, cohortes de clients",
         "Calculs, agrégations, tableaux croisés",
         "SQL (JOINs, fenêtres), Apps Script"
       ], tools:["Google Sheets","Apps Script","SQL","Looker Studio"]},
-      { title:"Module 2 — SQL & Data Warehousing", bullets:[
+
+      { title:"Module 2 - SQL & Data Warehousing", bullets:[
         "Modélisation (staging → marts, star schema)",
         "CTE, window functions, qualité de données"
       ], tools:["BigQuery","dbt (transformations & doc)"]},
-      { title:"Module 3 — Data Extraction", bullets:[
+
+      { title:"Module 3 - Data Extraction", bullets:[
         "APIs, imports, webhooks, scheduling",
         "Trafic de données vers DWH"
-      ], tools:["Python (requests)","Zapier","Fivetran","Google Tag Manager"]},
-      { title:"Module 4 — Data Viz & A/B Testing", bullets:[
+      ], tools:["Python (requests) pour APIs","Zapier","Fivetran","Google Tag Manager"]},
+
+      { title:"Module 4 - Data Viz & A/B Testing", bullets:[
         "Design de dashboards, storytelling",
         "AB testing (métriques, interprétation)"
       ], tools:["Looker Studio","Tableau","Power BI"]},
-      { title:"Module 5 — Python (pandas, scikit-learn, prophet, clustering)", bullets:[
+
+      { title:"Module 5 - Python (pandas, scikit-learn, prophet, clustering)", bullets:[
         "EDA, features, modèles baseline",
         "Time-series (Prophet), clustering (k-means)"
       ], tools:["pandas","scikit-learn","Prophet"]},
-      { title:"Module 6 — Projet final", bullets:[
+
+      { title:"Module 6 - Projet final", bullets:[
         "Pipeline de A à Z, documentation, data storytelling",
         "Dossiers finaux et restitution"
       ], tools:["BigQuery","dbt","Python","Looker Studio","Power BI"]}
@@ -311,13 +336,13 @@
       grid.innerHTML = items.map(p => {
         const openNew = p.link.startsWith("http") || p.link.endsWith(".pdf");
         return `
-          <a href="${p.link}" ${openNew ? 'target="_blank" rel="noopener"' : ""} class="card group hover:border-gold/50 transition">
-            <div class="flex items-start justify-between gap-2">
+          <a href="${p.link}" ${openNew ? 'target="_blank" rel="noopener"' : ""} class="card hover:-translate-y-[2px] transition">
+            <div class="flex items-start justify-between gap-2 p-4">
               <h3 class="font-semibold">${p.title}</h3>
-              <span class="text-[10px] text-ink-400 border border-soft rounded px-2 py-0.5">repo</span>
+              <span class="text-[10px] text-slate-400 border border-gold/35 rounded px-2 py-0.5">repo</span>
             </div>
-            <p class="muted text-sm mt-1">${p.desc}</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-[11px]">
+            <p class="muted text-sm px-4">${p.desc}</p>
+            <div class="p-4 pt-3 flex flex-wrap gap-2 text-[11px]">
               ${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}
             </div>
           </a>
@@ -330,7 +355,7 @@
     const mg = document.getElementById("modules-grid");
     if (mg) {
       mg.innerHTML = modules.map(m => `
-        <div class="card">
+        <div class="card p-4">
           <h3 class="font-semibold">${m.title}</h3>
           <div class="mt-1">
             <ul class="list-disc list-inside text-sm muted space-y-1">
@@ -341,7 +366,7 @@
             ${m.tools.map(t=>`<span class="tag">${t}</span>`).join("")}
           </div>
         </div>
-      ).join("");
+      `).join("");
     }
 
     // ---------- RECHERCHE ----------
