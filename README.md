@@ -12,7 +12,7 @@ Ce site présente mes projets, dashboards, études de cas et compétences.
 👉 [https://bricedanielboisson.github.io](https://bricedanielboisson.github.io)
 
 📄 **Télécharger mon CV (PDF)**  
-👉 [https://bricedanielboisson.github.io/brice-boisson_business_data_analyst.pdf](https://bricedanielboisson.github.io/brice-boisson_business_data_analyst.pdf)
+👉 [https://bricedanielboisson.github.io/brice-boisson_business_data_analyst.pdf](https://bricedanielboisson.github.io/brice-boisson_business_business_analyst.pdf)
 
 💼 **LinkedIn :**  
 👉 [https://www.linkedin.com/in/brice-boisson-mbafr/](https://www.linkedin.com/in/brice-boisson-mbafr/)
